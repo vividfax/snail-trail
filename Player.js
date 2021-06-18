@@ -1,9 +1,7 @@
 class Player {
 
-    constructor(x, y) {
+    constructor() {
 
-        this.x = x;
-        this.y = y;
         this.radius = width * 2;
         this.color = color(0, 0);
     }

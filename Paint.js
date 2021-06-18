@@ -45,7 +45,7 @@ class Paint {
             tinkCache2 = tinkCache;
             tinkCache = tink;
 
-            pop.play();
+            pops.play();
         }
     }
 

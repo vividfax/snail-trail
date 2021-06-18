@@ -7,7 +7,7 @@ let tinkCache;
 let tinkCache2;
 
 let fry;
-let pop;
+let pops;
 
 function preload() {
 
@@ -18,8 +18,8 @@ function preload() {
     fry = new Audio("sounds/fry.ogg");
     fry.loop = true;
 
-    pop = new Audio("sounds/pop.ogg");
-    pop.loop = true;
+    pops = new Audio("sounds/pops.ogg");
+    pops.loop = true;
 }
 
 function setup() {
@@ -28,11 +28,13 @@ function setup() {
     background("#fff");
     colorMode(HSB, 100);
 
-    player = new Player(width/2, height/2);
+    player = new Player();
 
     for (let i = 0; i < 5; i++) {
         paints[i] = new Paint();
     }
+    select("#saveButton").mousePressed(() => saveCanvas("canvas", "png"));
+    select("#restartButton").mousePressed(() => restart());
 }
 
 function draw() {
@@ -44,4 +46,18 @@ function draw() {
         paints[i].hover(mouseX, mouseY);
         paints[i].display();
     }
+    if (player.radius == 0) {
+        select("#saveButton").show();
+        select("#restartButton").show();
+    }
+}
+
+function restart() {
+
+    background("#fff");
+    player.radius = width * 2;
+    player.color = color(0, 0);
+
+    select("#saveButton").hide();
+    select("#restartButton").hide();
 }
