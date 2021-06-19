@@ -18,7 +18,9 @@ class Player {
         noStroke();
 
         if (this.shape == 1) {
-            ellipse(0, 0, this.radius);
+            ellipse(0, 0, this.radius * 0.9);
+        } else if (this.shape == 10) {
+            star(0, 0, this.radius/2, 5);
         } else {
             shape(0, 0, this.radius * .5, this.shape);
         }

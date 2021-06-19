@@ -46,7 +46,7 @@ function draw() {
         paints[i].hover(mouseX, mouseY);
         paints[i].display();
     }
-    if (player.radius < 4) {
+    if (player.radius < 3) {
         select("#saveButton").show();
         select("#restartButton").show();
     }
@@ -71,4 +71,25 @@ function shape(x, y, radius, npoints) {
     vertex(sx, sy);
   }
   endShape(CLOSE);
+}
+
+function star(x, y, radius1, npoints) {
+  let angle = TWO_PI / npoints;
+  let halfAngle = angle / 2.0;
+  radius2 = radius1 / 2;
+  beginShape();
+  for (let a = 0; a < TWO_PI; a += angle) {
+    let sx = x + cos(a) * radius2;
+    let sy = y + sin(a) * radius2;
+    vertex(sx, sy);
+    sx = x + cos(a + halfAngle) * radius1;
+    sy = y + sin(a + halfAngle) * radius1;
+    vertex(sx, sy);
+  }
+  endShape(CLOSE);
+}
+
+function keyPressed() {
+
+    player.radius *= 1.1;
 }
