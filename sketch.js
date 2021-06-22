@@ -46,7 +46,7 @@ function draw() {
         paints[i].hover(mouseX, mouseY);
         paints[i].display();
     }
-    if (player.radius < 3) {
+    if (player.radius < 5) {
         select("#saveButton").show();
         select("#restartButton").show();
     }
